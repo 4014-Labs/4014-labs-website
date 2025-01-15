@@ -5,26 +5,39 @@ import logo from './logo.svg';
 import wittgensteinImg from './Wittgenstein.png';
 import barpathaiLogo from './barpathai-logo.jpeg';
 
-
-
 function App() {
   return (
     <div className="App">
       <style>{`
-        /* -------------- GLOBAL STYLES -------------- */
+        /* RESET & BASE STYLES */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        html, body {
+          background-color: #fafafa;
+          color: #333;
+          font-family: 'Helvetica Neue', Arial, sans-serif;
+          line-height: 1.6;
+        }
+
         .App {
           text-align: center;
           margin: 0;
           padding: 0;
-          font-family: 'Trebuchet MS', sans-serif;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
         }
 
-        /* -------------- HEADER STYLING (More Imaginative) -------------- */
+        /* -------------- HEADER -------------- */
         .App-header {
-          /* A radial gradient for a more creative look */
-          background: radial-gradient(circle at center, #6d83f2 0%, #282c34 100%);
+          background-color: #fff; /* simpler background */
+          border-bottom: 1px solid #ddd; /* subtle bottom border */
           padding: 2rem;
-          color: #fff;
+          color: #333;
         }
 
         .Placeholder-logo {
@@ -43,18 +56,17 @@ function App() {
         }
 
         .company-title {
-          font-family: 'Comic Sans MS', cursive, sans-serif;
-          font-size: 2.8rem;
+          font-size: 2.4rem;
           margin: 0.5rem 0;
-          color: #ffea7c;
-          text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+          color: #0c3b8c;
+          text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .company-motto {
-          font-size: 1.3rem;
+          font-size: 1.1rem;
           font-style: italic;
           margin: 0;
-          color: #fff;
+          color: #777; 
         }
 
         /* -------------- MAIN CONTENT -------------- */
@@ -63,38 +75,39 @@ function App() {
           max-width: 800px;
           text-align: left;
           padding: 0 1rem;
+          flex: 1; /* let main content grow */
         }
 
-        /* Wittgenstein Section */
+        /* Wittgenstein Quote Section (originally in main) */
         .quote-section {
           margin-bottom: 2rem;
           text-align: center;
         }
-
-        /* Make Wittgenstein image bigger */
         .wittgenstein-image {
           max-width: 80%;
           height: auto;
           display: block;
           margin: 0 auto 1rem;
+          border: 1px solid #ddd;
+          border-radius: 4px;
         }
-
         .quote-attribution {
-          font-size: 1rem;
+          font-size: 0.9rem;
           font-style: italic;
           margin-top: 0.5rem;
-          color: #555; /* Darker text for better visibility */
+          color: #555;
         }
 
         .company-blurb p {
           margin-bottom: 1rem;
-          line-height: 1.5;
+          color: #444;
         }
 
         /* -------------- FOOTER + ICONS -------------- */
         .footer {
           margin-top: 3rem;
-          background-color: #f2f2f2;
+          background-color: #fff;
+          border-top: 1px solid #ddd;
           padding: 1rem;
         }
 
@@ -102,6 +115,7 @@ function App() {
           font-weight: bold;
           font-size: 1.2rem;
           margin-bottom: 1rem;
+          color: #444;
         }
 
         .footer-icons {
@@ -111,7 +125,6 @@ function App() {
           gap: 2rem;
         }
 
-        /* Make the row of three icons a lot bigger */
         .barpathai-logo {
           width: 120px;
           height: 120px;
@@ -121,17 +134,20 @@ function App() {
         .question-mark-icon {
           font-size: 5rem;
           cursor: default;
+          color: #888;
         }
 
         .below-icons-text {
           margin-top: 1rem;
           font-weight: bold;
+          color: #444;
         }
 
         .coming-soon-text {
           font-weight: bold;
           font-size: 1rem;
           margin-top: 1rem;
+          color: #000;
         }
 
         .single-tweet-embed {
@@ -142,12 +158,11 @@ function App() {
         .contact-info {
           margin: 2rem 0;
           font-size: 0.9rem;
+          color: #444;
         }
-
         .contact-info p {
           font-weight: bold;
         }
-
         .contact-info ul {
           list-style: none;
           padding: 0;
@@ -159,9 +174,30 @@ function App() {
           font-style: italic;
         }
 
-        /* A small style for the follow button container */
         .twitter-follow-container {
           margin: 1rem auto;
+        }
+
+        /* -------------- BOTTOM WITTGENSTEIN SECTION -------------- */
+        /* This replicates the top header's style but sits at the bottom */
+        .bottom-wittgenstein {
+          background-color: #fff;
+          border-top: 1px solid #ddd;
+          padding: 2rem;
+          color: #333;
+          text-align: center; /* center content */
+        }
+        .bottom-wittgenstein-img {
+          max-width: 80%;
+          margin: 0 auto 1rem;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          display: block;
+        }
+        .bottom-wittgenstein-quote {
+          font-size: 0.9rem;
+          font-style: italic;
+          color: #555;
         }
       `}</style>
 
@@ -174,17 +210,6 @@ function App() {
 
       {/* -------------- MAIN CONTENT -------------- */}
       <main className="main-content">
-        {/* Wittgenstein Quote Section (only the image + attribution) */}
-        <section className="quote-section">
-          <img
-            src={wittgensteinImg}
-            alt="Wittgenstein 4.014 Quote"
-            className="wittgenstein-image"
-          />
-          <p className="quote-attribution">
-            --Ludwig Wittgenstein, Tractatus Logico-Philosophicus 4.014
-          </p>
-        </section>
 
         {/* Blurb describing the goal of the company */}
         <section className="company-blurb">
@@ -209,7 +234,7 @@ function App() {
         </section>
       </main>
 
-      {/* -------------- FOOTER ICONS -------------- */}
+      {/* -------------- FOOTER ICONS (PROJECTS) -------------- */}
       <footer className="footer">
         <h3 className="projects-title">Our current projects:</h3>
 
@@ -224,7 +249,7 @@ function App() {
             />
           </a>
 
-          {/* Question mark icons for upcoming apps (golf, world generator) */}
+          {/* Question mark icons for upcoming apps */}
           <div className="question-mark-icon" title="Golf App (Coming Soon)">❓</div>
           <div className="question-mark-icon" title="World Generator App (Coming Soon)">❓</div>
         </div>
@@ -237,16 +262,14 @@ function App() {
           We are working on an API so that you can add computer vision streaming to your own app.
         </p>
 
-
-
         {/* -------------- CONTACT INFO -------------- */}
         <div className="contact-info">
           <p>Contact Information:</p>
           <ul>
             <li>
               <div className="twitter-follow-container">
-          <TwitterFollowButton screenName="wordgrammer" />
-        </div>
+                <TwitterFollowButton screenName="wordgrammer" />
+              </div>
             </li>
             <li>
               Email: <span className="placeholder-email">[email protected]</span>
@@ -257,6 +280,18 @@ function App() {
           </ul>
         </div>
       </footer>
+
+      {/* -------------- WITTGENSTEIN AT VERY BOTTOM -------------- */}
+      <div className="bottom-wittgenstein">
+        <img
+          src={wittgensteinImg}
+          alt="Wittgenstein 4.014 Quote"
+          className="bottom-wittgenstein-img"
+        />
+        <p className="bottom-wittgenstein-quote">
+          --Ludwig Wittgenstein, Tractatus Logico-Philosophicus 4.014
+        </p>
+      </div>
     </div>
   );
 }
