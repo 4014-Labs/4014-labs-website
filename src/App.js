@@ -4,6 +4,8 @@ import { TwitterTweetEmbed, TwitterFollowButton } from 'react-twitter-embed';
 import logo from './logo.svg';
 import wittgensteinImg from './Wittgenstein.png';
 import barpathaiLogo from './barpathai-logo.jpeg';
+import benchPressVideo from './bench_press.mp4';  // Import video
+import squatVideo from './squat.mp4';            // Import video
 
 function App() {
   return (
@@ -101,6 +103,25 @@ function App() {
         .company-blurb p {
           margin-bottom: 1rem;
           color: #444;
+        }
+
+        /* -------------- BAR PATH AI SECTION -------------- */
+        .bar-path-ai {
+          margin: 2rem 0;
+          text-align: center;
+        }
+        .bar-path-ai h2 {
+          margin-bottom: 1rem;
+          font-size: 1.6rem;
+          color: #0c3b8c;
+        }
+        .bar-path-ai p {
+          margin-bottom: 1rem;
+          color: #444;
+        }
+        .bar-path-ai a {
+          color: #0c3b8c;
+          text-decoration: underline;
         }
 
         /* -------------- FOOTER + ICONS -------------- */
@@ -232,6 +253,45 @@ function App() {
             you need to run it locally on your own computer. We want to change that.
           </p>
         </section>
+
+      {/* -------------- BAR PATH AI SECTION (UPDATED) -------------- */}
+      <section className="bar-path-ai">
+        <h2>Bar Path AI</h2>
+        <p>
+          Our current project is to make the world's most accurate powerlifting form tracker app.
+          We have a demo below.
+        </p>
+        <div
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  }}
+>
+  <video
+    src={benchPressVideo}
+    autoPlay
+    muted
+    loop
+    playsInline
+    style={{ flex: '1 1 45%', maxWidth: '45%' }}  // Removed marginBottom
+  >
+    Your browser does not support the video tag.
+  </video>
+  <video
+    src={squatVideo}
+    autoPlay
+    muted
+    loop
+    playsInline
+    style={{ flex: '1 1 45%', maxWidth: '45%' }}
+  >
+    Your browser does not support the video tag.
+  </video>
+</div>
+      </section>
       </main>
 
       {/* -------------- FOOTER ICONS (PROJECTS) -------------- */}
