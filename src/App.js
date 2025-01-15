@@ -315,7 +315,7 @@ function App() {
         </div>
 
         <p className="below-icons-text">
-          Bar Path AI -- shot path swing tracker -- Content Creation engine
+          Bar Path AI -- ????? -- ?????
         </p>
 
         <p className="coming-soon-text">
@@ -327,12 +327,12 @@ function App() {
           <p>Contact Information:</p>
           <ul>
             <li>
-              <div className="twitter-follow-container">
+              {/* <div className="twitter-follow-container">
                 <TwitterFollowButton screenName="wordgrammer" />
-              </div>
+              </div> */}
             </li>
             <li>
-              Email: <span className="placeholder-email">[email protected]</span>
+              Email: <span className="placeholder-email">blakejwhitmer@gmail.com</span>
             </li>
             <li>
               Phone: <span className="placeholder-phone">870-204-4976</span>
