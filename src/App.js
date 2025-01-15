@@ -1,7 +1,7 @@
 import React from 'react';
 import { TwitterTweetEmbed, TwitterFollowButton } from 'react-twitter-embed';
 
-import logo from './logo.svg';
+import logo from './4014labs_logo.jpg';
 import wittgensteinImg from './Wittgenstein.png';
 import barpathaiLogo from './barpathai-logo.jpeg';
 import benchPressVideo from './bench_press.mp4';  // Import video
@@ -335,7 +335,7 @@ function App() {
               Email: <span className="placeholder-email">blakejwhitmer@gmail.com</span>
             </li>
             <li>
-              Phone: <span className="placeholder-phone">870-204-4976</span>
+              Phone: <span className="placeholder-phone">(Email for phone)</span>
             </li>
           </ul>
         </div>
