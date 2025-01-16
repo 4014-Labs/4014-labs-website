@@ -1,7 +1,7 @@
 import React from 'react';
 import { TwitterTweetEmbed, TwitterFollowButton } from 'react-twitter-embed';
 
-import logo from './4014labs_logo.jpg';
+import logo from './assets/Group16.svg';
 import wittgensteinImg from './Wittgenstein.png';
 import barpathaiLogo from './barpathai-logo.jpeg';
 import benchPressVideo from './bench_press.mp4';  // Import video
