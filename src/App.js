@@ -124,6 +124,36 @@ function App() {
           text-decoration: underline;
         }
 
+        /* -------------- OUR PRODUCT SECTION -------------- */
+        .our-product {
+          margin: 2rem 0;
+          text-align: center;
+        }
+        .our-product h2 {
+          margin-bottom: 1rem;
+          font-size: 1.6rem;
+          color: #0c3b8c;
+        }
+        .our-product p {
+          margin-bottom: 1rem;
+          color: #444;
+        }
+
+        /* -------------- RESEARCH POLICY SECTION -------------- */
+        .research-policy {
+          margin: 2rem 0;
+          text-align: center;
+        }
+        .research-policy h2 {
+          margin-bottom: 1rem;
+          font-size: 1.6rem;
+          color: #0c3b8c;
+        }
+        .research-policy p {
+          margin-bottom: 1rem;
+          color: #444;
+        }
+
         /* -------------- FOOTER + ICONS -------------- */
         .footer {
           margin-top: 3rem;
@@ -150,12 +180,6 @@ function App() {
           width: 120px;
           height: 120px;
           object-fit: cover;
-        }
-
-        .question-mark-icon {
-          font-size: 5rem;
-          cursor: default;
-          color: #888;
         }
 
         .below-icons-text {
@@ -235,68 +259,62 @@ function App() {
         {/* Blurb describing the goal of the company */}
         <section className="company-blurb">
           <p>
-            We want to bring computer vision to the everyday consumer. Computer vision works
-            in the lab, but doesn't have many apps. A lot of focus for consumer vision
-            technology has been on expensive, industrial-grade uses: self-driving cars,
-            factory automation. We want to bring these expensive models to your phone.
+            Over the past year, the world of machine learning has seen a video revolution. 
+            There are incredible models that work in the lab, but have not made their way to production.
+            We have not seen any “wrapper” startups build on top of these video models. Why is this? 
+            Why haven’t we seen SAM 2 wrappers? Why haven’t we seen Nvidia Cosmos wrappers?
           </p>
           <p>
-            What if you could access the power of computer vision from your phone? What if
-            we took the technology used for self-driving cars and used it to improve your
-            golf swing? What if we took the technology used to automate factories and used
-            it to turn iPhone videos into blockbuster movies with special effects?
-            This is a surprisingly difficult technical challenge.
+            Video is difficult to work with. A short, 10 second video file is 20 mb. An image is 200 kb. 
+            Text is less than a kb. To deploy an ML video model in the datacenter, you need a thousand times the storage, 
+            a thousand times the bandwidth, and a thousand times the engineering behind the scenes.
           </p>
           <p>
-            We also want to offer our services with an API, so that you can add computer
-            vision to your own apps. Currently, if you want to work with computer vision,
-            you need to run it locally on your own computer. We want to change that.
+            Most developers avoid this problem by running ML models locally, on an edge device. This is a cop out. 
+            Modern vision and video generation models are simply too large to run on an edge device. 
+            By limiting themselves to "edge devices", most computer vision startups miss out on every single ML 
+            breakthrough that has occurred in the past two years.
+          </p>
+          <p>
+            4014 labs wants to tackle these engineering problems head-on. We will then provide a developer framework to let users integrate video into their apps.
+          </p>
+          <p>
+            Our goal is to provide developers with a single platform to handle ML model inference, 
+            large-scale video storage, and seamless video streaming. No more cobbling 
+            together on-sight storage, CloudFront, and five ML inference APIs. No more bouncing 20 mb video files between four different servers. Just a 
+            straightforward developer framework for everything video.
+          </p>
+          <p>
+            You should be able to build Tik Tok in two weeks...
           </p>
         </section>
 
-      {/* -------------- BAR PATH AI SECTION (UPDATED) -------------- */}
-      <section className="bar-path-ai">
-        <h2>Bar Path AI</h2>
-        <p>
-          Our current project is to make the world's most accurate powerlifting form tracker app.
-          We have a demo below.
-        </p>
-        <div
-  style={{
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-  }}
->
-  <video
-    src={benchPressVideo}
-    autoPlay
-    muted
-    loop
-    playsInline
-    style={{ flex: '1 1 45%', maxWidth: '45%' }}  // Removed marginBottom
-  >
-    Your browser does not support the video tag.
-  </video>
-  <video
-    src={squatVideo}
-    autoPlay
-    muted
-    loop
-    playsInline
-    style={{ flex: '1 1 45%', maxWidth: '45%' }}
-  >
-    Your browser does not support the video tag.
-  </video>
-</div>
-      </section>
+        {/* -------------- OUR PRODUCT SECTION -------------- */}
+        <section className="our-product">
+          <h2>Our Product</h2>
+          <p>
+            We want you to add computer vision, AI video generation, AI video editing, 
+            video storage, and video streaming to your own app.
+          </p>
+
+          <p>
+            API coming soon.
+          </p>
+        </section>
+
+        {/* -------------- RESEARCH POLICY SECTION -------------- */}
+        <section className="research-policy">
+          <h2>Research policy</h2>
+          <p>
+            We plan to dedicate 20% of our compute to research, open sourcing all of the results.
+          </p>
+        </section>
+
       </main>
 
-      {/* -------------- FOOTER ICONS (PROJECTS) -------------- */}
+      {/* -------------- FOOTER / APP DEMO -------------- */}
       <footer className="footer">
-        <h3 className="projects-title">Our current projects:</h3>
+        <h3 className="projects-title">App Demo</h3>
 
         <div className="footer-icons">
           {/* BarPathAI clickable link */}
@@ -308,19 +326,50 @@ function App() {
               title="BarPathAI"
             />
           </a>
-
-          {/* Question mark icons for upcoming apps */}
-          <div className="question-mark-icon" title="Golf App (Coming Soon)">❓</div>
-          <div className="question-mark-icon" title="World Generator App (Coming Soon)">❓</div>
         </div>
 
         <p className="below-icons-text">
-          Bar Path AI -- ????? -- ?????
+          This is a demo app made with our current infrastructure.
         </p>
 
-        <p className="coming-soon-text">
-          We are working on an API so that you can add computer vision streaming to your own app.
-        </p>
+         {/* -------------- BAR PATH AI SECTION -------------- */}
+         <section className="bar-path-ai">
+          <h2>Bar Path AI</h2>
+          <p>
+            This demo is a "wrapper" for Meta's SAM 2 model, a state of the art video segmentation model. We believe that SAM 2 can be used in dozens of creative ways, not just for powerlifting.
+          </p>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+            }}
+          >
+            <video
+              src={benchPressVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{ flex: '1 1 45%', maxWidth: '45%' }}
+            >
+              Your browser does not support the video tag.
+            </video>
+            <video
+              src={squatVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{ flex: '1 1 45%', maxWidth: '45%' }}
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </section>
+
 
         {/* -------------- CONTACT INFO -------------- */}
         <div className="contact-info">
@@ -332,10 +381,10 @@ function App() {
               </div> */}
             </li>
             <li>
-              Email: <span className="placeholder-email">blakejwhitmer@gmail.com</span>
+              Email: <span className="placeholder-email">blake@4014labs.com</span>
             </li>
             <li>
-              Phone: <span className="placeholder-phone">(Email for phone)</span>
+              Email: <span className="placeholder-email">paul@4014labs.com</span>
             </li>
           </ul>
         </div>
