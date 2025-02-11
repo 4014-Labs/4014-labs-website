@@ -105,7 +105,7 @@ function App() {
       {/* -------------- FOOTER -------------- */}
       <footer className="site-footer">
         <div className="footer-content">
-          <p className="copyright"> {new Date().getFullYear()} 4014 Labs. All rights reserved.</p>
+          <p className="copyright"> {new Date().getFullYear()} by 4014 Labs · All rights reserved.</p>
           <p className="contact">
             Questions or feedback? Email us at{' '}
             <span className="email">blake [at] 4014labs.com</span> and{' '}
