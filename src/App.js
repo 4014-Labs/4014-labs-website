@@ -1,10 +1,6 @@
 import React from 'react';
-import { TwitterTweetEmbed, TwitterFollowButton } from 'react-twitter-embed';
-import './App.styles.css';
-
 import logo from './assets/logowhite.svg';
-import wittgensteinImg from './Wittgenstein.png';
-import barpathaiLogo from './barpathai-logo.jpeg';
+import './App.styles.css';
 
 function App() {
   return (
