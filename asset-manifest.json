@@ -1,18 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.f11f64a6.css",
-    "main.js": "/static/js/main.bf89d0d4.js",
+    "main.js": "/static/js/main.0ceedb8f.js",
     "static/js/488.25bd6a12.chunk.js": "/static/js/488.25bd6a12.chunk.js",
-    "static/media/Wittgenstein.png": "/static/media/Wittgenstein.c7fe394321a514402c7d.png",
-    "static/media/barpathai-logo.jpeg": "/static/media/barpathai-logo.e77241492032e9e8e497.jpeg",
     "index.html": "/index.html",
     "static/media/logowhite.svg": "/static/media/logowhite.e60ecd24d55feeb2942e589e0a052408.svg",
     "main.f11f64a6.css.map": "/static/css/main.f11f64a6.css.map",
-    "main.bf89d0d4.js.map": "/static/js/main.bf89d0d4.js.map",
+    "main.0ceedb8f.js.map": "/static/js/main.0ceedb8f.js.map",
     "488.25bd6a12.chunk.js.map": "/static/js/488.25bd6a12.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f11f64a6.css",
-    "static/js/main.bf89d0d4.js"
+    "static/js/main.0ceedb8f.js"
   ]
 }
