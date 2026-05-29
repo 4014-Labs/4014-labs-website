@@ -38,7 +38,7 @@ npm install
 npm start
 ```
 
-The site will be available at [http://localhost:3000](http://localhost:3000).
+The site will be available at [http://localhost:4000](http://localhost:4000).
 
 ### Building for Production
 
