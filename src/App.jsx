@@ -4,28 +4,20 @@ import './App.styles.css';
 
 const capabilities = [
   {
-    title: 'Upload a photo or video',
-    body: 'Start with a clip or image from your camera roll, desktop, or phone and tell Idea what effect you want.',
+    title: 'Understand the shot',
+    body: 'Upload a clip or image and ask Idea what is happening, what objects matter, or which effect fits the scene.',
   },
   {
-    title: 'Analyze visual media',
-    body: 'Ask Idea what is in a clip, identify objects, inspect frames, or decide which effect fits the shot.',
+    title: 'Track what matters',
+    body: 'Attach masks, highlights, glows, or selective treatments to a person, product, hand, car, ball, or moving object.',
   },
   {
-    title: 'Track objects',
-    body: 'Attach masks, highlights, glows, or selective treatments to subjects and objects as they move through video.',
+    title: 'Apply the effect',
+    body: 'Ask for bloom, glow, color separation, film grain, blur, trails, light leaks, halation, or a cleaner grade.',
   },
   {
-    title: 'Apply shader effects',
-    body: 'Use real shader effects like bloom, glow, color separation, film grain, blur, trails, and light leaks.',
-  },
-  {
-    title: 'Color grade the shot',
-    body: 'Ask for warmer skin tones, punchier contrast, night-club lighting, softer highlights, or a cleaner cinematic grade.',
-  },
-  {
-    title: 'Save and share',
-    body: 'Preview the finished effect, download it, or save edited videos to Photos on iPhone.',
+    title: 'Get the finished version',
+    body: 'Idea runs the edit in the background, then gives you a video you can preview, download, or save to Photos.',
   },
 ];
 
@@ -48,8 +40,6 @@ const examples = [
   },
 ];
 
-const steps = ['Upload', 'Ask', 'Edit', 'Preview', 'Save'];
-
 const useCases = [
   'Add TikTok- and Instagram-ready effects without opening a timeline editor.',
   'Track a person, product, hand, ball, car, or object and apply effects around it.',
@@ -66,54 +56,47 @@ const bobbieFeatures = [
 function AppVisual() {
   return (
     <div className="product-visual" aria-label="Idea app preview">
-      <div className="browser-frame">
-        <div className="browser-toolbar">
-          <span></span>
-          <span></span>
-          <span></span>
+      <div className="iphone-frame">
+        <div className="iphone-status">
+          <span>9:41</span>
+          <div className="iphone-notch"></div>
+          <span>5G 92%</span>
         </div>
-        <div className="app-preview">
-          <aside className="media-rail">
-            <div className="asset-tile asset-video">
-              <video autoPlay muted loop playsInline src="/bench_press.mp4" />
-              <span>source clip</span>
-            </div>
-            <div className="asset-tile asset-image">
-              <div className="image-swatch"></div>
-              <span>tracked glow</span>
-            </div>
-            <div className="asset-tile asset-output">
-              <div className="output-lines">
-                <i></i>
-                <i></i>
-                <i></i>
-              </div>
-              <span>finished video</span>
-            </div>
-          </aside>
+
+        <div className="mobile-app-preview">
+          <div className="mobile-app-header">
+            <strong>Idea</strong>
+            <span>editing in background</span>
+          </div>
+
+          <div className="mobile-video-card source-video-card">
+            <video autoPlay muted loop playsInline src="/bench_press.mp4" />
+            <div className="video-badge">source clip</div>
+          </div>
 
           <section className="chat-panel">
             <div className="chat-message user-message">
-              Track the person and add subtle bloom around the highlights.
+              Track the barbell path.
             </div>
             <div className="chat-message assistant-message">
               I found the subject, applied the shader effect, and kept the background natural.
             </div>
-            <div className="tool-result">
-              <div>
-                <strong>Effect ready</strong>
-                <span>preview or save</span>
-              </div>
-              <button>Preview</button>
-            </div>
           </section>
-        </div>
-      </div>
 
-      <div className="phone-preview" aria-hidden="true">
-        <div className="phone-notch"></div>
-        <video autoPlay muted loop playsInline src="/bench_press.mp4" />
-        <div className="phone-action">Save to Photos</div>
+          <div className="mobile-video-card finished-video-card">
+            <video autoPlay muted loop playsInline src="/bench_press.mp4" />
+            <div className="video-action-row">
+              <div className="video-badge">finished video</div>
+              <button className="save-iphone-button" type="button">Save to iPhone</button>
+            </div>
+          </div>
+          <div className="mobile-chat-input" aria-label="Message input">
+            <span>Ask for another edit...</span>
+            <button type="button">Send</button>
+          </div>
+        </div>
+
+        <div className="home-indicator"></div>
       </div>
     </div>
   );
@@ -129,7 +112,6 @@ function App() {
         </a>
         <nav className="site-nav" aria-label="Main navigation">
           <a href="#capabilities">What it does</a>
-          <a href="#how-it-works">How it works</a>
           <a href="#examples">Examples</a>
           <a href="#bobbie">Bobbie</a>
         </nav>
@@ -165,9 +147,8 @@ function App() {
             <p className="eyebrow">No AI slop</p>
             <h2>Effects should not erase the creator.</h2>
             <p>
-              Idea does not invent a fake video for you. It helps process the media you already made. The finished
-              result should feel like your clip with better motion, color, light, and polish, not like something
-              obviously distorted by generative AI.
+              Idea does not generate a fake video for you. It makes <strong>you</strong> look better in your actual
+              videos. Apply effects to your videos to make you look as good as Instagram models and movie scenes.
             </p>
           </div>
         </section>
@@ -189,21 +170,10 @@ function App() {
           </div>
         </section>
 
-        <section className="overview-section">
-          <div className="section-copy centered">
-            <p className="eyebrow">Product</p>
-            <h2>Idea is a consumer app for video effects.</h2>
-            <p>
-              Use it to analyze a shot, track what matters, apply high-quality effects, and make clips look more
-              polished without spending your night inside a pro editing stack.
-            </p>
-          </div>
-        </section>
-
         <section className="capabilities-section" id="capabilities">
           <div className="section-copy">
-            <p className="eyebrow">What you can do</p>
-            <h2>Ask for the effects you actually want.</h2>
+            <p className="eyebrow">What Idea does</p>
+            <h2>Understand the shot, apply the effect, return the edit.</h2>
           </div>
           <div className="feature-grid">
             {capabilities.map((feature) => (
@@ -211,30 +181,6 @@ function App() {
                 <h3>{feature.title}</h3>
                 <p>{feature.body}</p>
               </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="steps-section section-band" id="how-it-works">
-          <div className="section-copy centered">
-            <p className="eyebrow">How it works</p>
-            <h2>From raw clip to finished effect.</h2>
-          </div>
-          <div className="steps-list">
-            {steps.map((step, index) => (
-              <div className="step-card" key={step}>
-                <span>{index + 1}</span>
-                <strong>{step}</strong>
-                <p>
-                  {[
-                    'Add an image or video from your device.',
-                    'Tell Idea what to track, grade, enhance, or analyze.',
-                    'Idea applies shader-based edits in the background.',
-                    'View the processed result directly in the chat.',
-                    'Download it, share it, or save it to Photos.',
-                  ][index]}
-                </p>
-              </div>
             ))}
           </div>
         </section>
@@ -347,8 +293,7 @@ rendering shader effect...`}</code>
         <div className="footer-content">
           <p className="copyright">{new Date().getFullYear()} 4014 Labs. All rights reserved.</p>
           <p className="contact">
-            Questions or feedback? Email <span className="email">blake [at] 4014labs.com</span> and{' '}
-            <span className="email">paul [at] 4014labs.com</span>.
+            Questions or feedback? Email <span className="email">support@4014labs.com</span>.
           </p>
         </div>
       </footer>
