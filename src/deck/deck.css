@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+:root {
+  color: #101114;
+  background: #e8edf6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#deck-root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+.deck {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
+}
+
+.deck-slide {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  place-items: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.slide-canvas {
+  position: relative;
+  display: grid;
+  width: min(calc((100vh - 3rem) * 16 / 9), calc(100vw - 3rem));
+  max-height: calc(100vh - 3rem);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  padding: clamp(2rem, 5vw, 5rem);
+  border: 1px solid #b6c2d5;
+  background:
+    linear-gradient(rgba(0, 80, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 80, 255, 0.045) 1px, transparent 1px),
+    #fbfcff;
+  background-size: 28px 28px;
+  box-shadow: 0 28px 80px rgba(21, 37, 67, 0.18);
+}
+
+.slide-meta {
+  position: absolute;
+  top: clamp(1.25rem, 2.5vw, 2.5rem);
+  right: clamp(1.5rem, 3vw, 3rem);
+  left: clamp(1.5rem, 3vw, 3rem);
+  display: flex;
+  justify-content: space-between;
+  color: #0050ff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.65rem, 1vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.slide-content {
+  align-self: center;
+  width: 100%;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  max-width: 14ch;
+  margin-bottom: clamp(1rem, 2.5vw, 2.5rem);
+  font-size: clamp(2.1rem, 5.5vw, 6.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+
+h2 {
+  max-width: 17ch;
+  font-size: clamp(1.8rem, 4.2vw, 5.2rem);
+}
+
+p {
+  max-width: 58ch;
+  color: #424c5b;
+  font-size: clamp(0.9rem, 1.45vw, 1.45rem);
+  line-height: 1.5;
+}
+
+.statement {
+  color: #101114;
+  font-size: clamp(1rem, 1.8vw, 1.85rem);
+  font-weight: 700;
+}
+
+.cover-slide .slide-canvas,
+.closing-slide .slide-canvas {
+  color: white;
+  border-color: #0050ff;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(243, 128, 32, 0.9), transparent 22%),
+    linear-gradient(135deg, #0050ff, #0035aa);
+}
+
+.cover-slide .slide-meta,
+.closing-slide .slide-meta,
+.closing-slide p {
+  color: white;
+}
+
+.cover-slide h1 {
+  max-width: none;
+  margin-bottom: clamp(0.8rem, 1.5vw, 1.5rem);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(3.4rem, 8vw, 9rem);
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  text-align: center;
+}
+
+.cover-logo {
+  width: clamp(4rem, 8vw, 8rem);
+  height: auto;
+  margin-bottom: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+.cover-slide .slide-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cover-subtitle {
+  max-width: none;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: clamp(1rem, 1.8vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.media-placeholder {
+  display: grid;
+  min-height: 12rem;
+  place-items: center;
+  border: 2px dashed #9fb0c8;
+  border-radius: 0.75rem;
+  color: #58606b;
+  background: rgba(255, 255, 255, 0.76);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.75rem, 1.1vw, 1rem);
+  text-align: center;
+}
+
+.wide-media {
+  min-height: clamp(12rem, 43vh, 30rem);
+}
+
+.deck-video {
+  display: block;
+  width: 100%;
+  max-height: clamp(12rem, 43vh, 30rem);
+  object-fit: contain;
+  border: 1px solid #9fb0c8;
+  border-radius: 0.75rem;
+  background: #050608;
+  box-shadow: 0 1rem 2.5rem rgba(21, 37, 67, 0.16);
+}
+
+.media-slide .slide-canvas {
+  padding: clamp(2rem, 3.5vw, 3.5rem);
+}
+
+.media-slide .slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.media-slide h2 {
+  max-width: none;
+  margin-bottom: clamp(0.65rem, 1.2vw, 1.2rem);
+  font-size: clamp(1.5rem, 2.8vw, 3.4rem);
+}
+
+.media-slide .deck-video {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: min(65vh, calc(100% - 4.5rem));
+}
+
+.media-slide .wide-media {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: min(65vh, calc(100% - 4.5rem));
+}
+
+.media-slide .media-caption {
+  flex: 0 0 auto;
+  margin: 0.65rem 0 0;
+  font-size: clamp(0.72rem, 1vw, 1rem);
+}
+
+.comparison-slide.media-slide .comparison {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.comparison-slide.media-slide .original-panel .comparison-image-frame,
+.comparison-slide.media-slide .edit-stack,
+.comparison-slide.media-slide .edit-card {
+  height: min(64vh, 100%);
+}
+
+.media-caption {
+  margin-top: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.comparison-slide .slide-canvas {
+  padding: clamp(4.25rem, 6vw, 6rem) clamp(1.5rem, 2.6vw, 2.6rem) clamp(1.25rem, 2vw, 2rem);
+}
+
+.comparison-slide h2 {
+  margin-bottom: clamp(0.45rem, 0.8vw, 0.8rem);
+  font-size: clamp(1.3rem, 2.25vw, 2.7rem);
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(1rem, 2vw, 2.5rem);
+}
+
+.comparison-panel {
+  min-width: 0;
+}
+
+.comparison-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.media-label,
+.comparison-count {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: #58606b;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.65rem, 0.85vw, 0.85rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.original-panel .comparison-image-frame,
+.edit-stack,
+.edit-card {
+  height: clamp(13rem, 43vh, 30rem);
+}
+
+.edit-stack {
+  position: relative;
+  touch-action: pan-y;
+}
+
+.comparison-image-frame {
+  overflow: hidden;
+  border: 1px solid #9fb0c8;
+  border-radius: 0.75rem;
+  background: #e7ebf2;
+}
+
+.comparison-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #e7ebf2;
+  user-select: none;
+}
+
+.edit-card {
+  position: absolute;
+  inset: 0 auto 0 calc(var(--card-index) * var(--card-step));
+  z-index: calc(var(--card-count) - var(--card-index));
+  width: 56.2%;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid #9fb0c8;
+  border-radius: 0.75rem;
+  color: #58606b;
+  background: white;
+  box-shadow: 0.45rem 0.55rem 1.2rem rgba(21, 37, 67, 0.14);
+  cursor: pointer;
+  transform: rotate(calc((var(--card-index) - 2) * 0.7deg));
+  transform-origin: center;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.edit-card span {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.45rem;
+  color: white;
+  background: rgba(16, 17, 20, 0.76);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.65rem, 0.85vw, 0.85rem);
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+.edit-card.is-front {
+  z-index: 15;
+  border-color: #0050ff;
+  box-shadow: 0 1.1rem 2.2rem rgba(21, 37, 67, 0.24);
+  transform: rotate(0) translateY(-0.25rem);
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 6rem);
+}
+
+.qr-placeholder {
+  width: min(100%, 22rem);
+  aspect-ratio: 1;
+  justify-self: center;
+}
+
+.tutorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.75rem, 2vw, 2rem);
+}
+
+.tutorial-grid .media-placeholder {
+  min-height: clamp(10rem, 30vh, 22rem);
+  border-color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tutorial-grid p {
+  margin-top: 0.8rem;
+  font-size: clamp(0.72rem, 1vw, 1rem);
+}
+
+.tutorial-grid span {
+  color: #f38020;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+}
+
+.closing-line {
+  max-width: 38ch;
+  margin: clamp(1rem, 2vw, 2rem) 0 0;
+  font-size: clamp(1rem, 1.7vw, 1.7rem);
+  font-weight: 800;
+}
+
+@media (max-aspect-ratio: 4 / 5) {
+  .deck-slide {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .slide-canvas {
+    width: calc(100vw - 1.5rem);
+    max-height: none;
+    aspect-ratio: auto;
+    min-height: calc(100vh - 1.5rem);
+    padding: 4.5rem 1.25rem 2rem;
+  }
+
+  .comparison,
+  .two-column,
+  .tutorial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .original-panel .comparison-image-frame,
+  .edit-stack,
+  .edit-card {
+    height: min(38vh, 22rem);
+  }
+
+  .original-panel .comparison-image-frame {
+    min-height: 0;
+  }
+
+  .tutorial-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tutorial-grid .media-placeholder {
+    min-height: 10rem;
+  }
+
+  .cover-subtitle {
+    max-width: 28ch;
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deck {
+    scroll-behavior: auto;
+  }
+
+  * {
+    scroll-behavior: auto !important;
+  }
+}

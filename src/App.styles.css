@@ -538,7 +538,6 @@ a {
 
 .ethos-section,
 .simplicity-section,
-.brand-section,
 .final-cta {
   padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 5vw, 5rem);
   border-top: 1px solid var(--line);
@@ -734,10 +733,6 @@ a {
 .bobbie-copy .secondary-button {
   justify-self: start;
   margin-top: 0.5rem;
-}
-
-.brand-section {
-  background: white;
 }
 
 .final-cta {

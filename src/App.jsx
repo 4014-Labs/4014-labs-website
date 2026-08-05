@@ -263,18 +263,6 @@ rendering shader effect...`}</code>
           </div>
         </section>
 
-        <section className="brand-section">
-          <div className="section-copy centered">
-            <p className="eyebrow">Why 4014?</p>
-            <h2>Different forms, one creative system.</h2>
-            <p>
-              The name comes from Wittgenstein's Proposition 4.014, a passage about different forms sharing the
-              same underlying structure. We see media the same way: prompts, frames, edits, and outputs are
-              different views of the same idea.
-            </p>
-          </div>
-        </section>
-
         <section className="final-cta">
           <h2>Try Idea today.</h2>
           <p>Upload a photo or video and ask Idea for the effect you want.</p>
