@@ -153,6 +153,18 @@ a {
   box-shadow: 3px 3px 0 rgba(0, 80, 255, 0.16);
 }
 
+.coming-soon {
+  cursor: default;
+}
+
+.coming-soon:hover {
+  transform: none;
+}
+
+.primary-button.coming-soon:hover {
+  box-shadow: 4px 4px 0 var(--orange);
+}
+
 .hero-section {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(520px, 1.08fr);

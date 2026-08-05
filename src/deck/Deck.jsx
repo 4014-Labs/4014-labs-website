@@ -175,10 +175,61 @@ function FinalWalkthrough() {
 
 function ImageComparison({ original, originalAlt, edits }) {
   const [frontEdit, setFrontEdit] = useState(0);
+  const [showMobileOriginal, setShowMobileOriginal] = useState(false);
+  const [isMobileFullscreen, setIsMobileFullscreen] = useState(false);
+  const holdTimerRef = useRef(null);
+  const pointerStartRef = useRef(null);
+  const swipeStartXRef = useRef(null);
+  const suppressClickRef = useRef(false);
   const cardStep = `${43.8 / Math.max(edits.length - 1, 1)}%`;
 
+  const moveEdit = (direction) => {
+    setShowMobileOriginal(false);
+    setFrontEdit((current) => (current + direction + edits.length) % edits.length);
+  };
+
+  const startCompare = (event) => {
+    suppressClickRef.current = false;
+    pointerStartRef.current = { x: event.clientX, y: event.clientY };
+    holdTimerRef.current = window.setTimeout(() => {
+      suppressClickRef.current = true;
+      setShowMobileOriginal(true);
+    }, 180);
+  };
+
+  const moveCompare = (event) => {
+    if (!pointerStartRef.current) return;
+    const moved = Math.hypot(event.clientX - pointerStartRef.current.x, event.clientY - pointerStartRef.current.y);
+    if (moved > 8) window.clearTimeout(holdTimerRef.current);
+  };
+
+  const endCompare = () => {
+    window.clearTimeout(holdTimerRef.current);
+    pointerStartRef.current = null;
+    setShowMobileOriginal(false);
+  };
+
+  const handleSwipeEnd = (event) => {
+    if (swipeStartXRef.current === null) return;
+    const distance = event.changedTouches[0].clientX - swipeStartXRef.current;
+    swipeStartXRef.current = null;
+    if (Math.abs(distance) > 45) {
+      suppressClickRef.current = true;
+      moveEdit(distance < 0 ? 1 : -1);
+    }
+  };
+
+  const openFullscreen = () => {
+    if (suppressClickRef.current) {
+      suppressClickRef.current = false;
+      return;
+    }
+    setIsMobileFullscreen(true);
+  };
+
   return (
-    <div className="comparison" aria-label="Original image and edited versions">
+    <>
+    <div className="comparison desktop-comparison" aria-label="Original image and edited versions">
       <div className="comparison-panel original-panel">
         <span className="media-label">Original</span>
         <div className="comparison-image-frame">
@@ -210,6 +261,52 @@ function ImageComparison({ original, originalAlt, edits }) {
         </div>
       </div>
     </div>
+    <div className="mobile-comparison" aria-label="Swipe through edited versions and hold to compare with the original">
+      <button
+        className="mobile-comparison-main"
+        onClick={openFullscreen}
+        onPointerDown={startCompare}
+        onPointerMove={moveCompare}
+        onPointerUp={endCompare}
+        onPointerCancel={endCompare}
+        onPointerLeave={endCompare}
+        onTouchStart={(event) => { swipeStartXRef.current = event.touches[0].clientX; }}
+        onTouchEnd={handleSwipeEnd}
+        type="button"
+      >
+        <img src={showMobileOriginal ? original : edits[frontEdit].src} alt={showMobileOriginal ? originalAlt : edits[frontEdit].label} draggable="false" />
+        <span>{showMobileOriginal ? 'Original' : edits[frontEdit].label}</span>
+      </button>
+      <button className="mobile-original-thumb" onClick={() => setShowMobileOriginal((current) => !current)} type="button">
+        <img src={original} alt={originalAlt} draggable="false" />
+        <span>Original</span>
+      </button>
+      <div className="mobile-edit-dots" aria-label="Choose an edited version">
+        {edits.map((edit, index) => (
+          <button className={frontEdit === index ? 'is-active' : ''} key={edit.id} onClick={() => { setFrontEdit(index); setShowMobileOriginal(false); }} type="button" aria-label={edit.label} />
+        ))}
+      </div>
+    </div>
+    {isMobileFullscreen && createPortal(
+      <div className="image-mobile-gallery" role="dialog" aria-modal="true" aria-label="Image comparison gallery">
+        <button className="image-mobile-gallery-close" onClick={() => setIsMobileFullscreen(false)} type="button" aria-label="Close gallery">×</button>
+        <button
+          className="image-mobile-gallery-media"
+          onPointerDown={startCompare}
+          onPointerMove={moveCompare}
+          onPointerUp={endCompare}
+          onPointerCancel={endCompare}
+          onTouchStart={(event) => { swipeStartXRef.current = event.touches[0].clientX; }}
+          onTouchEnd={handleSwipeEnd}
+          type="button"
+        >
+          <img src={showMobileOriginal ? original : edits[frontEdit].src} alt={showMobileOriginal ? originalAlt : edits[frontEdit].label} draggable="false" />
+        </button>
+        <p>{showMobileOriginal ? 'Original' : edits[frontEdit].label}</p>
+      </div>,
+      document.body,
+    )}
+    </>
   );
 }
 

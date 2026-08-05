@@ -115,9 +115,7 @@ function App() {
           <a href="#examples">Examples</a>
           <a href="#bobbie">Bobbie</a>
         </nav>
-        <a className="nav-cta" href="https://testflight.apple.com/join/e24NPqDc" target="_blank" rel="noopener noreferrer">
-          Try on TestFlight
-        </a>
+        <span className="nav-cta coming-soon">Open beta coming soon</span>
       </header>
 
       <main id="top">
@@ -131,9 +129,7 @@ function App() {
               and share.
             </p>
             <div className="hero-actions">
-              <a className="primary-button" href="https://testflight.apple.com/join/e24NPqDc" target="_blank" rel="noopener noreferrer">
-                Try on TestFlight
-              </a>
+              <span className="primary-button coming-soon">Open beta coming soon</span>
               <a className="secondary-button" href="#examples">
                 See examples
               </a>
@@ -264,12 +260,10 @@ rendering shader effect...`}</code>
         </section>
 
         <section className="final-cta">
-          <h2>Try Idea today.</h2>
+          <h2>Open beta coming soon.</h2>
           <p>Upload a photo or video and ask Idea for the effect you want.</p>
           <div className="hero-actions">
-            <a className="primary-button" href="https://testflight.apple.com/join/e24NPqDc" target="_blank" rel="noopener noreferrer">
-              Try on TestFlight
-            </a>
+            <span className="primary-button coming-soon">Open beta coming soon</span>
             <a className="secondary-button light" href="#top">
               Back to top
             </a>
