@@ -47,6 +47,7 @@ button {
 .slide-canvas {
   position: relative;
   display: grid;
+  container-type: inline-size;
   width: min(calc((100vh - 3rem) * 16 / 9), calc(100vw - 3rem));
   max-height: calc(100vh - 3rem);
   aspect-ratio: 16 / 9;
@@ -70,7 +71,7 @@ button {
   justify-content: space-between;
   color: #0050ff;
   font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(0.65rem, 1vw, 0.9rem);
+  font-size: max(0.65rem, 1cqw);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -91,28 +92,71 @@ h1,
 h2 {
   max-width: 14ch;
   margin-bottom: clamp(1rem, 2.5vw, 2.5rem);
-  font-size: clamp(2.1rem, 5.5vw, 6.8rem);
+  font-size: max(2.1rem, 5.5cqw);
   line-height: 0.95;
   letter-spacing: -0.065em;
 }
 
 h2 {
   max-width: 17ch;
-  font-size: clamp(1.8rem, 4.2vw, 5.2rem);
+  font-size: max(1.8rem, 4.2cqw);
 }
 
 p {
   max-width: 58ch;
   color: #424c5b;
-  font-size: clamp(0.9rem, 1.45vw, 1.45rem);
+  font-size: max(0.9rem, 1.45cqw);
   line-height: 1.5;
 }
 
 .statement {
   color: #101114;
-  font-size: clamp(1rem, 1.8vw, 1.85rem);
+  font-size: max(1rem, 1.8cqw);
   font-weight: 700;
 }
+
+.breakthrough-claims {
+  display: grid;
+  align-items: start;
+  gap: clamp(1rem, 1.8cqw, 2rem);
+  margin-top: clamp(1.25rem, 2.5vw, 2.5rem);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.breakthrough-claims > div {
+  display: block;
+}
+
+.breakthrough-claims strong {
+  color: #0050ff;
+  font-size: max(1rem, 1.8cqw);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+}
+
+.breakthrough-claims > div:nth-child(2) strong {
+  color: #101114;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+@media (min-width: 90rem) and (min-height: 48rem) {
+  #breakthrough h2 {
+    font-size: 5.67cqw;
+  }
+
+  #breakthrough .statement,
+  #breakthrough .breakthrough-claims strong {
+    font-size: 2.43cqw;
+  }
+
+  #breakthrough > .slide-canvas > .slide-content > p:not(.statement) {
+    font-size: 1.96cqw;
+  }
+}
+
+
 
 .cover-slide .slide-canvas,
 .closing-slide .slide-canvas {
@@ -121,6 +165,11 @@ p {
   background:
     radial-gradient(circle at 82% 16%, rgba(243, 128, 32, 0.9), transparent 22%),
     linear-gradient(135deg, #0050ff, #0035aa);
+}
+
+#tutorial .slide-canvas {
+  padding-top: clamp(0.75rem, 1.25vw, 1.25rem);
+  padding-bottom: clamp(0.75rem, 1.25vw, 1.25rem);
 }
 
 .cover-slide .slide-meta,
@@ -133,7 +182,7 @@ p {
   max-width: none;
   margin-bottom: clamp(0.8rem, 1.5vw, 1.5rem);
   font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(3.4rem, 8vw, 9rem);
+  font-size: max(3.4rem, 8cqw);
   font-weight: 700;
   letter-spacing: -0.07em;
   text-align: center;
@@ -156,7 +205,7 @@ p {
   max-width: none;
   margin-bottom: 0;
   color: rgba(255, 255, 255, 0.84);
-  font-size: clamp(1rem, 1.8vw, 1.8rem);
+  font-size: max(1rem, 1.8cqw);
   font-weight: 600;
   line-height: 1.35;
   white-space: nowrap;
@@ -171,7 +220,7 @@ p {
   color: #58606b;
   background: rgba(255, 255, 255, 0.76);
   font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(0.75rem, 1.1vw, 1rem);
+  font-size: max(0.75rem, 1.1cqw);
   text-align: center;
 }
 
@@ -204,13 +253,31 @@ p {
 .media-slide h2 {
   max-width: none;
   margin-bottom: clamp(0.65rem, 1.2vw, 1.2rem);
-  font-size: clamp(1.5rem, 2.8vw, 3.4rem);
+  font-size: max(1.5rem, 2.8cqw);
 }
 
 .media-slide .deck-video {
   flex: 1 1 auto;
   min-height: 0;
   max-height: min(65vh, calc(100% - 4.5rem));
+}
+
+#fitness .slide-content,
+#video-editing .slide-content {
+  justify-content: center;
+  padding-top: clamp(1.1rem, 1.5vw, 1.5rem);
+  transform: translateY(-0.2cqw);
+}
+
+#fitness h2,
+#video-editing h2 {
+  transform: translateY(-4.4cqw);
+}
+
+#fitness .deck-video,
+#video-editing .deck-video {
+  max-height: min(61vh, calc(100% - 7rem));
+  transform: translateY(-1.4cqw);
 }
 
 .media-slide .wide-media {
@@ -222,12 +289,13 @@ p {
 .media-slide .media-caption {
   flex: 0 0 auto;
   margin: 0.65rem 0 0;
-  font-size: clamp(0.72rem, 1vw, 1rem);
+  font-size: max(0.72rem, 1cqw);
 }
 
 .comparison-slide.media-slide .comparison {
   flex: 1 1 auto;
   min-height: 0;
+  transform: translateY(2.2cqw);
 }
 
 .comparison-slide.media-slide .original-panel .comparison-image-frame,
@@ -247,7 +315,7 @@ p {
 
 .comparison-slide h2 {
   margin-bottom: clamp(0.45rem, 0.8vw, 0.8rem);
-  font-size: clamp(1.3rem, 2.25vw, 2.7rem);
+  font-size: max(1.3rem, 2.25cqw);
 }
 
 .comparison {
@@ -271,7 +339,7 @@ p {
   margin-bottom: 0.6rem;
   color: #58606b;
   font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(0.65rem, 0.85vw, 0.85rem);
+  font-size: max(0.65rem, 0.85cqw);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -332,7 +400,7 @@ p {
   color: white;
   background: rgba(16, 17, 20, 0.76);
   font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(0.65rem, 0.85vw, 0.85rem);
+  font-size: max(0.65rem, 0.85cqw);
   font-weight: 700;
   backdrop-filter: blur(8px);
 }
@@ -357,35 +425,149 @@ p {
   justify-self: center;
 }
 
-.tutorial-grid {
+.idea-app-icon {
+  display: block;
+  width: min(100%, 22rem);
+  height: auto;
+  justify-self: center;
+  border-radius: 22%;
+  filter: drop-shadow(0 1.4rem 2.2rem rgba(21, 37, 67, 0.24));
+}
+
+.idea-download {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(0.75rem, 2vw, 2rem);
+  justify-items: center;
+  gap: 1rem;
 }
 
-.tutorial-grid .media-placeholder {
-  min-height: clamp(10rem, 30vh, 22rem);
-  border-color: rgba(255, 255, 255, 0.58);
-  color: rgba(255, 255, 255, 0.78);
-  background: rgba(255, 255, 255, 0.1);
+.idea-download > a:first-child {
+  display: block;
+  border-radius: 22%;
+  transition: transform 160ms ease;
 }
 
-.tutorial-grid p {
-  margin-top: 0.8rem;
-  font-size: clamp(0.72rem, 1vw, 1rem);
+.idea-download > a:first-child:hover,
+.idea-download > a:first-child:focus-visible {
+  transform: translateY(-0.3rem) scale(1.02);
 }
 
-.tutorial-grid span {
-  color: #f38020;
+.testflight-url {
+  color: #0050ff;
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 800;
+  font-size: max(0.65rem, 0.9cqw);
+  overflow-wrap: anywhere;
+  text-align: center;
 }
 
-.closing-line {
-  max-width: 38ch;
-  margin: clamp(1rem, 2vw, 2rem) 0 0;
-  font-size: clamp(1rem, 1.7vw, 1.7rem);
+#tutorial .slide-content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.walkthrough-shell {
+  display: contents;
+}
+
+.walkthrough-steps {
+  position: absolute;
+  top: 50%;
+  left: clamp(1.5rem, 4vw, 4rem);
+  display: flex;
+  width: 27%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(0.35rem, 0.65vw, 0.65rem);
+  min-width: 0;
+  transform: translateY(-50%);
+}
+
+.walkthrough-steps button {
+  display: grid;
+  grid-template-columns: 1.4em 1fr;
+  gap: 0.55em;
+  padding: 0;
+  border: 0;
+  color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.65rem, 1.72cqw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  transition: color 160ms ease;
+}
+
+.walkthrough-steps button:hover,
+.walkthrough-steps button:focus-visible,
+.walkthrough-steps button.is-active {
+  color: white;
+}
+
+.walkthrough-steps span {
+  color: #f38020;
+}
+
+.walkthrough-phone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  height: auto;
+  width: auto;
+  aspect-ratio: 359 / 780;
+  padding: clamp(0.35rem, 0.55vw, 0.55rem);
+  border: 2px solid rgba(255, 255, 255, 0.82);
+  border-radius: clamp(1.6rem, 3vw, 2.8rem);
+  overflow: hidden;
+  background: #111318;
+  box-shadow: 0 24px 60px rgba(0, 15, 70, 0.42);
+  cursor: pointer;
+  transform: translateX(-52%);
+}
+
+.walkthrough-speaker {
+  position: absolute;
+  z-index: 2;
+  top: clamp(0.65rem, 1vw, 0.9rem);
+  left: 50%;
+  width: 30%;
+  height: 3.5%;
+  border-radius: 999px;
+  background: #111318;
+  transform: translateX(-50%);
+}
+
+.walkthrough-phone img {
+  position: absolute;
+  inset: clamp(0.35rem, 0.55vw, 0.55rem);
+  display: block;
+  width: calc(100% - 2 * clamp(0.35rem, 0.55vw, 0.55rem));
+  height: calc(100% - 2 * clamp(0.35rem, 0.55vw, 0.55rem));
+  border-radius: clamp(1.25rem, 2.5vw, 2.35rem);
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.walkthrough-thesis {
+  position: absolute;
+  top: 50%;
+  right: clamp(1.5rem, 4vw, 4rem);
+  width: min(22ch, 27%);
+  min-width: 0;
+  margin: 0;
+  font-size: clamp(1rem, 3.28cqw, 2.9rem);
+  line-height: 1.2;
   font-weight: 800;
+  transform: translateY(-50%);
+}
+
+.mobile-gallery {
+  display: none;
 }
 
 @media (max-aspect-ratio: 4 / 5) {
@@ -403,8 +585,7 @@ p {
   }
 
   .comparison,
-  .two-column,
-  .tutorial-grid {
+  .two-column {
     grid-template-columns: 1fr;
   }
 
@@ -418,12 +599,126 @@ p {
     min-height: 0;
   }
 
-  .tutorial-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .walkthrough-shell {
+    display: contents;
   }
 
-  .tutorial-grid .media-placeholder {
-    min-height: 10rem;
+  .walkthrough-phone {
+    display: none;
+  }
+
+  .walkthrough-steps {
+    top: clamp(4rem, 10vh, 6rem);
+    right: 1.25rem;
+    left: 1.25rem;
+    width: auto;
+    transform: none;
+  }
+
+  .walkthrough-steps button {
+    grid-template-columns: 1.4em 1fr;
+    font-size: clamp(1.3rem, 3.44cqw, 3rem);
+  }
+
+  .walkthrough-steps span {
+    display: inline;
+  }
+
+  .walkthrough-thesis {
+    top: auto;
+    right: 1.25rem;
+    bottom: 1.5rem;
+    left: 1.25rem;
+    width: auto;
+    font-size: clamp(2rem, 6.56cqw, 5.8rem);
+    transform: none;
+  }
+
+  .mobile-gallery {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 3.5rem 1rem 5rem;
+    color: white;
+    background: #050609;
+    touch-action: pan-y;
+  }
+
+  .mobile-gallery img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 1rem;
+    object-fit: contain;
+    user-select: none;
+  }
+
+  .mobile-gallery-close {
+    position: absolute;
+    z-index: 4;
+    top: max(1rem, env(safe-area-inset-top));
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: white;
+    background: rgba(255, 255, 255, 0.14);
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .mobile-gallery-zone {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .mobile-gallery-zone.is-previous {
+    left: 0;
+  }
+
+  .mobile-gallery-zone.is-next {
+    right: 0;
+  }
+
+  .mobile-gallery-caption {
+    position: absolute;
+    z-index: 3;
+    right: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: 1rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    pointer-events: none;
+  }
+
+  .mobile-gallery-caption span {
+    flex: 0 0 auto;
+    color: #f38020;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .mobile-gallery-caption p {
+    margin: 0;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: right;
   }
 
   .cover-subtitle {

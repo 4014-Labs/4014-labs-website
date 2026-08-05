@@ -115,8 +115,8 @@ function App() {
           <a href="#examples">Examples</a>
           <a href="#bobbie">Bobbie</a>
         </nav>
-        <a className="nav-cta" href="https://67idea.com" target="_blank" rel="noopener noreferrer">
-          Sign up
+        <a className="nav-cta" href="https://testflight.apple.com/join/e24NPqDc" target="_blank" rel="noopener noreferrer">
+          Try on TestFlight
         </a>
       </header>
 
@@ -131,8 +131,8 @@ function App() {
               and share.
             </p>
             <div className="hero-actions">
-              <a className="primary-button" href="https://67idea.com" target="_blank" rel="noopener noreferrer">
-                Sign up
+              <a className="primary-button" href="https://testflight.apple.com/join/e24NPqDc" target="_blank" rel="noopener noreferrer">
+                Try on TestFlight
               </a>
               <a className="secondary-button" href="#examples">
                 See examples
@@ -267,8 +267,8 @@ rendering shader effect...`}</code>
           <h2>Try Idea today.</h2>
           <p>Upload a photo or video and ask Idea for the effect you want.</p>
           <div className="hero-actions">
-            <a className="primary-button" href="https://67idea.com" target="_blank" rel="noopener noreferrer">
-              Sign up
+            <a className="primary-button" href="https://testflight.apple.com/join/e24NPqDc" target="_blank" rel="noopener noreferrer">
+              Try on TestFlight
             </a>
             <a className="secondary-button light" href="#top">
               Back to top
