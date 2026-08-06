@@ -5,6 +5,7 @@ import logo from '../assets/logowhite.svg';
 const slides = [
   'cover',
   'breakthrough',
+  'breakthrough-advantages',
   'fitness',
   'video-editing',
   'image-editing',
@@ -22,8 +23,8 @@ const blakeImageEdits = [
 ];
 
 const paulImageEdits = [
-  { id: 'color-grade', label: 'Color grade', src: '/deck/paul_image/color_grade.jpeg' },
   { id: 'color-grade-bloom', label: 'Color grade and bloom', src: '/deck/paul_image/color_grade_and_bloom.jpeg' },
+  { id: 'color-grade', label: 'Color grade and subtle blur', src: '/deck/paul_image/color_grade.jpeg' },
   { id: 'targeted-hue-swap', label: 'Targeted hue swap', src: '/deck/paul_image/targeted_hue_swap.jpeg' },
   { id: 'zoom-distortion', label: 'Zoom distortion', src: '/deck/paul_image/zoom_distortion.jpeg' },
   {
@@ -117,13 +118,16 @@ function FinalWalkthrough() {
     <div
       className="walkthrough-shell"
       aria-label="Interactive Idea app walkthrough"
-      onBlur={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       ref={phoneRef}
     >
-      <nav className="walkthrough-steps" aria-label="Choose an app screen">
+      <nav
+        className="walkthrough-steps"
+        aria-label="Choose an app screen"
+        onBlur={() => setIsPaused(false)}
+        onFocus={() => setIsPaused(true)}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         {screens.map((screen, index) => (
           <button
             className={activeScreen === index ? 'is-active' : ''}
@@ -139,6 +143,10 @@ function FinalWalkthrough() {
       <button
         className="walkthrough-phone"
         onClick={advanceScreen}
+        onBlur={() => setIsPaused(false)}
+        onFocus={() => setIsPaused(true)}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
         type="button"
         aria-label={`App screen ${activeScreen + 1} of ${screenCount}. Show next screen.`}
       >
@@ -324,7 +332,7 @@ function Slide({ id, number, eyebrow, children, className = '' }) {
   );
 }
 
-export default function Deck() {
+function DeckContent() {
   const deckRef = useRef(null);
 
   useEffect(() => {
@@ -361,26 +369,32 @@ export default function Deck() {
         <p className="cover-subtitle">Code sandbox for fitness, video editing, and image editing.</p>
       </Slide>
 
-      <Slide id="breakthrough" number={2} eyebrow="The breakthrough">
-        <h2>We discovered a new way to sandbox AI agents.</h2>
-        <p className="statement">
-          Instead of sandboxing an entire computer, we sandbox programmable visual capabilities.
-        </p>
-        <p>
-          LLM agent writes code and calls GPU-accelerated computer-vision tools to precisely transform media in our
-          sandbox, without arbitrary code execution or generative video/image models.
-        </p>
-        <div className="breakthrough-claims" aria-label="Key advantages">
-          <div>
-            <strong>Up to 10,000× cheaper than generative AI video</strong>
-          </div>
-          <div>
-            <strong>Indistinguishable from human video editing</strong>
-          </div>
-        </div>
+      <Slide id="breakthrough" number={2} eyebrow="What we do">
+        <h2>We built a custom code sandbox for vibe-coding video edits on GPUS.</h2>
       </Slide>
 
-      <Slide id="fitness" number={3} eyebrow="Fitness" className="media-slide">
+      <Slide id="breakthrough-advantages" number={3} eyebrow="The advantage">
+        <div className="breakthrough-claims" aria-label="Key advantages">
+          <div>
+            <strong>Up to 55× more FLOPS per dollar</strong>
+            <span>than ChatGPT’s Python sandbox</span>
+          </div>
+          <div>
+            <strong>Up to 176× more FLOPS per second</strong>
+            <span>than ChatGPT’s Python sandbox</span>
+          </div>
+          <div>
+            <strong>Up to 10,000× cheaper</strong>
+            <span>than generative video models</span>
+          </div>
+        </div>
+        <p className="advantage-summary">
+          More capabilities, faster iteration, and better scaling at dramatically lower cost.
+        </p>
+        <p className="benchmark-note">Based on internal benchmarks; methodology available upon request.</p>
+      </Slide>
+
+      <Slide id="fitness" number={4} eyebrow="Fitness" className="media-slide">
         <h2>Pixel-perfect computer vision tracking without arbitrary code execution</h2>
         <video
           className="deck-video wide-media"
@@ -399,8 +413,8 @@ export default function Deck() {
         </video>
       </Slide>
 
-      <Slide id="video-editing" number={4} eyebrow="Video editing" className="media-slide">
-        <h2>Vibe-code any effect. Iterate non-destructively.</h2>
+      <Slide id="video-editing" number={5} eyebrow="Video editing" className="media-slide">
+        <h2>Vibe-code any filter. Create custom effects. Iterate non-destructively.</h2>
         <video
           className="deck-video wide-media"
           autoPlay
@@ -418,7 +432,7 @@ export default function Deck() {
         </video>
       </Slide>
 
-      <Slide id="image-editing" number={5} eyebrow="Image editing" className="comparison-slide media-slide">
+      <Slide id="image-editing" number={6} eyebrow="Image editing" className="comparison-slide media-slide">
         <h2>Agent-written effects that no preset filter can offer.</h2>
         <ImageComparison
           original="/deck/blake_image/original.jpeg"
@@ -427,7 +441,7 @@ export default function Deck() {
         />
       </Slide>
 
-      <Slide id="image-editing-2" number={6} eyebrow="Image editing" className="comparison-slide media-slide">
+      <Slide id="image-editing-2" number={7} eyebrow="Image editing" className="comparison-slide media-slide">
         <h2>AI editing that even people who hate AI slop would use.</h2>
         <ImageComparison
           original="/deck/paul_image/original.jpeg"
@@ -436,7 +450,7 @@ export default function Deck() {
         />
       </Slide>
 
-      <Slide id="idea" number={7} eyebrow="Consumer agent app">
+      <Slide id="idea" number={8} eyebrow="Consumer agent app">
         <div className="two-column">
           <div>
             <h2>Try Idea.</h2>
@@ -458,9 +472,64 @@ export default function Deck() {
         </div>
       </Slide>
 
-      <Slide id="tutorial" number={8} eyebrow="How to use" className="closing-slide">
+      <Slide id="tutorial" number={9} eyebrow="How to use" className="closing-slide">
         <FinalWalkthrough />
       </Slide>
     </main>
   );
+}
+
+function DeckPasswordGate({ onUnlock }) {
+  const [password, setPassword] = useState('');
+  const [hasError, setHasError] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (password.trim().toLowerCase() !== 'testflight') {
+      setHasError(true);
+      return;
+    }
+
+    try {
+      window.sessionStorage.setItem('4014-deck-unlocked', 'true');
+    } catch {
+      // Access still works when session storage is unavailable.
+    }
+    onUnlock();
+  };
+
+  return (
+    <main className="deck-gate">
+      <form className="deck-gate-card" onSubmit={handleSubmit}>
+        <img src={logo} alt="4014 Labs" />
+        <p>4014 Labs</p>
+        <label htmlFor="deck-password">Password</label>
+        <input
+          autoComplete="off"
+          autoFocus
+          id="deck-password"
+          onChange={(event) => {
+            setPassword(event.target.value);
+            setHasError(false);
+          }}
+          type="text"
+          value={password}
+        />
+        {hasError && <span className="deck-gate-error" role="alert">Incorrect password</span>}
+        <button type="submit">View deck</button>
+      </form>
+    </main>
+  );
+}
+
+export default function Deck() {
+  const [isUnlocked, setIsUnlocked] = useState(() => {
+    try {
+      return window.sessionStorage.getItem('4014-deck-unlocked') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  return isUnlocked ? <DeckContent /> : <DeckPasswordGate onUnlock={() => setIsUnlocked(true)} />;
 }
