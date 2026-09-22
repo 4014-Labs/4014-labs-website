@@ -1,0 +1,361 @@
+{
+  "source_project": "Brinesport",
+  "source_profile": "ACP-000001",
+  "selected_ids": [
+    "CP-000025",
+    "CP-000026",
+    "CP-000027",
+    "CP-000028",
+    "CP-000029",
+    "CP-000030",
+    "CP-000031"
+  ],
+  "import_scope": "Website copy review only; exact source snapshots, not a harness profile installation.",
+  "principles": [
+    {
+      "schema_version": 3,
+      "id": "CP-000025",
+      "profile_id": "ACP-000001",
+      "title": "Avoid AI-slop patterns and hollowness",
+      "kind": "warning",
+      "principle": "Do not let prose fall into the recognizable patterns of generated text: mechanical em-dash overuse, negative parallelism (the 'not just X, but Y' and 'it's not X, it's Y' constructions), empty rule-of-three lists, similes that do not make sense, clustered fashionable vocabulary, corporate or brochure brandspeak, vague attributed authority, and transition words used as a checklist. Treat these surface tells as symptoms rather than the disease, because they evolve and humans use the same devices deliberately. The deeper tell in fiction is hollowness: vague or placeless setting, feelings and themes named too explicitly, summary in place of specific scene, neat resolution, cliches and generalizations, repeated pet phrasing, and symbols that never earn their meaning. Prefer specific, grounded, particular human detail. If a passage could describe any place, any person, or any feeling, it is probably slop. Separate child checks govern each family of tells.",
+      "rationale": "Generated prose tends to be proficient at the sentence level but hollow in specificity; the remedy is particularity and felt experience, not evasion of detection tools.",
+      "priority": "supporting",
+      "activation": "task-matched",
+      "stage_posture": {
+        "development": "soft",
+        "revision": "normal",
+        "final": "comprehensive"
+      },
+      "applies_to": [
+        "prose-review",
+        "scene-review",
+        "revision",
+        "final-audit"
+      ],
+      "diagnostic_questions": [
+        "Could this be about anywhere or anyone?"
+      ],
+      "review_checks": [
+        "Flag prose that could describe any place, person, or feeling, and clusters of generated-text surface patterns."
+      ],
+      "counterindications": [
+        "These are patterns, not banned words. A single em dash, a deliberate rule of three, or a purposeful transition proves nothing, and humans use all of these. Do not police vocabulary lists, and do not optimize prose to evade AI detectors; the aim is specificity and felt experience, not the appearance of being human."
+      ],
+      "origin": "author-derived",
+      "application_snapshots": [],
+      "status": "approved",
+      "created_at": "2026-09-14T01:42:36+00:00",
+      "structure": {
+        "uses": [
+          "question",
+          "review"
+        ],
+        "conditions": {},
+        "relations": []
+      },
+      "application_scope": [],
+      "relation_snapshots": {},
+      "revised_at": "2026-09-14T02:26:22+00:00",
+      "revision_reason": "Restructure as the governing warning with separate child checks.",
+      "approved_digest": "926ec9f10cbea23ef0696931e95425e67e61ec49bb699d67034e955808d876c4",
+      "reviewed_at": "2026-09-14T02:26:23+00:00",
+      "review_reason": "Writer approved the governing AI-slop warning and its child-check structure."
+    },
+    {
+      "schema_version": 3,
+      "id": "CP-000026",
+      "profile_id": "ACP-000001",
+      "title": "Slop check: surface pattern clusters",
+      "kind": "diagnostic",
+      "principle": "Check for clusters of generated-text surface patterns: mechanical em-dash overuse, negative parallelism ('not just X, but Y' and 'it's not X, it's Y'), empty rule-of-three lists, similes that do not make sense, clustered fashionable vocabulary, corporate or brochure brandspeak, vague attributed authority, and transition words used as a checklist. A single instance proves nothing; clusters are the signal.",
+      "rationale": "Separate check under the governing AI-slop warning, so each family is applied on its own.",
+      "priority": "enrichment",
+      "activation": "task-matched",
+      "stage_posture": {
+        "development": "soft",
+        "revision": "normal",
+        "final": "comprehensive"
+      },
+      "applies_to": [],
+      "diagnostic_questions": [
+        "Do these devices cluster, and is each doing honest work or just adding drama?"
+      ],
+      "review_checks": [
+        "Flag clusters of surface patterns, especially where a device adds drama without doing honest work."
+      ],
+      "counterindications": [],
+      "origin": "author-derived",
+      "application_snapshots": [],
+      "status": "approved",
+      "created_at": "2026-09-14T02:26:24+00:00",
+      "structure": {
+        "uses": [
+          "review"
+        ],
+        "conditions": {},
+        "relations": [
+          {
+            "kind": "under",
+            "target": "CP-000025",
+            "note": "One family of the surface tells under the governing warning."
+          }
+        ]
+      },
+      "application_scope": [],
+      "relation_snapshots": {
+        "CP-000025": "926ec9f10cbea23ef0696931e95425e67e61ec49bb699d67034e955808d876c4"
+      },
+      "approved_digest": "c9809a6233b65c9d93d8a1e34ab20179f19cff3c28a079be08bb6852c490dae0",
+      "reviewed_at": "2026-09-14T03:59:08+00:00",
+      "review_reason": "Writer approved CP-000026 as part of the CP-000025 slop-check set."
+    },
+    {
+      "schema_version": 3,
+      "id": "CP-000027",
+      "profile_id": "ACP-000001",
+      "title": "Slop check: placeless or generic setting",
+      "kind": "diagnostic",
+      "principle": "Check whether the setting is specific and grounded. A passage that could take place anywhere, in any city or on any ship, is a hollow-setting tell.",
+      "rationale": "Separate check under the governing AI-slop warning, so each family is applied on its own.",
+      "priority": "enrichment",
+      "activation": "task-matched",
+      "stage_posture": {
+        "development": "soft",
+        "revision": "normal",
+        "final": "comprehensive"
+      },
+      "applies_to": [
+        "prose-review",
+        "scene-review",
+        "revision",
+        "final-audit"
+      ],
+      "diagnostic_questions": [
+        "Could this scene take place anywhere?"
+      ],
+      "review_checks": [
+        "Flag settings with no specific, grounded, particular detail."
+      ],
+      "counterindications": [],
+      "origin": "author-derived",
+      "application_snapshots": [],
+      "status": "approved",
+      "created_at": "2026-09-14T02:26:24+00:00",
+      "structure": {
+        "uses": [
+          "review"
+        ],
+        "conditions": {},
+        "relations": [
+          {
+            "kind": "under",
+            "target": "CP-000025",
+            "note": "The setting-specificity check under the governing warning."
+          }
+        ]
+      },
+      "application_scope": [],
+      "relation_snapshots": {
+        "CP-000025": "926ec9f10cbea23ef0696931e95425e67e61ec49bb699d67034e955808d876c4"
+      },
+      "revised_at": "2026-09-14T04:10:08+00:00",
+      "revision_reason": "TEST: add retrieval tags so the child surfaces (matches parent CP-000025).",
+      "approved_digest": "63e10d58396c63c4ceff91911f737fe4df44e26f87e80c2f43b73660be58c67f",
+      "reviewed_at": "2026-09-14T04:10:13+00:00",
+      "review_reason": "TEST: re-approve with retrieval tags."
+    },
+    {
+      "schema_version": 3,
+      "id": "CP-000028",
+      "profile_id": "ACP-000001",
+      "title": "Slop check: feelings and themes named explicitly",
+      "kind": "diagnostic",
+      "principle": "Check whether emotions and themes are dramatized or merely named. Naming a feeling, such as a pang of regret, or announcing a theme tells the reader what to feel instead of causing it.",
+      "rationale": "Separate check under the governing AI-slop warning, so each family is applied on its own.",
+      "priority": "enrichment",
+      "activation": "task-matched",
+      "stage_posture": {
+        "development": "soft",
+        "revision": "normal",
+        "final": "comprehensive"
+      },
+      "applies_to": [],
+      "diagnostic_questions": [
+        "Is this feeling or theme dramatized, or merely named?"
+      ],
+      "review_checks": [
+        "Flag feelings or themes named explicitly rather than shown through action, choice, or detail."
+      ],
+      "counterindications": [],
+      "origin": "author-derived",
+      "application_snapshots": [],
+      "status": "approved",
+      "created_at": "2026-09-14T02:26:25+00:00",
+      "structure": {
+        "uses": [
+          "review"
+        ],
+        "conditions": {},
+        "relations": [
+          {
+            "kind": "under",
+            "target": "CP-000025",
+            "note": "The explicit-feeling check under the governing warning."
+          }
+        ]
+      },
+      "application_scope": [],
+      "relation_snapshots": {
+        "CP-000025": "926ec9f10cbea23ef0696931e95425e67e61ec49bb699d67034e955808d876c4"
+      },
+      "approved_digest": "c8d1b08b424624c5f586ee01bac8e08bde016101f31ac93c6fe0c5bf3aa4b088",
+      "reviewed_at": "2026-09-14T03:59:10+00:00",
+      "review_reason": "Writer approved CP-000028 as part of the CP-000025 slop-check set."
+    },
+    {
+      "schema_version": 3,
+      "id": "CP-000029",
+      "profile_id": "ACP-000001",
+      "title": "Slop check: summary in place of scene",
+      "kind": "diagnostic",
+      "principle": "Check whether important material is dramatized in scene or summarized. Summarizing a conversation or an experience the story needs the reader to feel flattens it.",
+      "rationale": "Separate check under the governing AI-slop warning, so each family is applied on its own.",
+      "priority": "enrichment",
+      "activation": "task-matched",
+      "stage_posture": {
+        "development": "soft",
+        "revision": "normal",
+        "final": "comprehensive"
+      },
+      "applies_to": [],
+      "diagnostic_questions": [
+        "Does this moment need scene and dialogue, or is summary enough?"
+      ],
+      "review_checks": [
+        "Flag summary where the story needs specific scene and dialogue."
+      ],
+      "counterindications": [],
+      "origin": "author-derived",
+      "application_snapshots": [],
+      "status": "approved",
+      "created_at": "2026-09-14T02:26:25+00:00",
+      "structure": {
+        "uses": [
+          "review"
+        ],
+        "conditions": {},
+        "relations": [
+          {
+            "kind": "under",
+            "target": "CP-000025",
+            "note": "The scene-versus-summary check under the governing warning."
+          }
+        ]
+      },
+      "application_scope": [],
+      "relation_snapshots": {
+        "CP-000025": "926ec9f10cbea23ef0696931e95425e67e61ec49bb699d67034e955808d876c4"
+      },
+      "approved_digest": "def0c515c452a93c2a2c795978c7e1a58af88ba6cb2e86d897262d05b2f77836",
+      "reviewed_at": "2026-09-14T03:59:11+00:00",
+      "review_reason": "Writer approved CP-000029 as part of the CP-000025 slop-check set."
+    },
+    {
+      "schema_version": 3,
+      "id": "CP-000030",
+      "profile_id": "ACP-000001",
+      "title": "Slop check: neat resolution, cliches, and generalizations",
+      "kind": "diagnostic",
+      "principle": "Check for tidy resolution that erases cost, and for cliched or generalized language such as a warm, inviting smile or a flutter in the chest.",
+      "rationale": "Separate check under the governing AI-slop warning, so each family is applied on its own.",
+      "priority": "enrichment",
+      "activation": "task-matched",
+      "stage_posture": {
+        "development": "soft",
+        "revision": "normal",
+        "final": "comprehensive"
+      },
+      "applies_to": [],
+      "diagnostic_questions": [
+        "Does this resolve too neatly, and is this language cliched or generalized?"
+      ],
+      "review_checks": [
+        "Flag neat resolutions that erase cost, and cliched or generalized phrasing."
+      ],
+      "counterindications": [],
+      "origin": "author-derived",
+      "application_snapshots": [],
+      "status": "approved",
+      "created_at": "2026-09-14T02:26:26+00:00",
+      "structure": {
+        "uses": [
+          "review"
+        ],
+        "conditions": {},
+        "relations": [
+          {
+            "kind": "under",
+            "target": "CP-000025",
+            "note": "The resolution-and-cliche check under the governing warning."
+          }
+        ]
+      },
+      "application_scope": [],
+      "relation_snapshots": {
+        "CP-000025": "926ec9f10cbea23ef0696931e95425e67e61ec49bb699d67034e955808d876c4"
+      },
+      "approved_digest": "81dc08d7e27176008621de7650464486b1e94da59268307682c6777ee8359a1c",
+      "reviewed_at": "2026-09-14T03:59:12+00:00",
+      "review_reason": "Writer approved CP-000030 as part of the CP-000025 slop-check set."
+    },
+    {
+      "schema_version": 3,
+      "id": "CP-000031",
+      "profile_id": "ACP-000001",
+      "title": "Slop check: repeated phrasing and unearned symbols",
+      "kind": "diagnostic",
+      "principle": "Check for repeated pet phrasing and for symbols or motifs repeatedly drawn to attention without earning their meaning.",
+      "rationale": "Separate check under the governing AI-slop warning, so each family is applied on its own.",
+      "priority": "enrichment",
+      "activation": "task-matched",
+      "stage_posture": {
+        "development": "soft",
+        "revision": "normal",
+        "final": "comprehensive"
+      },
+      "applies_to": [],
+      "diagnostic_questions": [
+        "Is this phrasing repeated, and does this motif earn its meaning?"
+      ],
+      "review_checks": [
+        "Flag repeated phrasing and motifs that never earn their meaning."
+      ],
+      "counterindications": [],
+      "origin": "author-derived",
+      "application_snapshots": [],
+      "status": "approved",
+      "created_at": "2026-09-14T02:26:26+00:00",
+      "structure": {
+        "uses": [
+          "review"
+        ],
+        "conditions": {},
+        "relations": [
+          {
+            "kind": "under",
+            "target": "CP-000025",
+            "note": "The repetition-and-symbol check under the governing warning."
+          }
+        ]
+      },
+      "application_scope": [],
+      "relation_snapshots": {
+        "CP-000025": "926ec9f10cbea23ef0696931e95425e67e61ec49bb699d67034e955808d876c4"
+      },
+      "approved_digest": "459f6315887185f3483874193aa6909ff0153e468258c5ca62f5cca34020aeb9",
+      "reviewed_at": "2026-09-14T03:59:13+00:00",
+      "review_reason": "Writer approved CP-000031 as part of the CP-000025 slop-check set."
+    }
+  ]
+}
