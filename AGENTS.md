@@ -1,9 +1,14 @@
 # Website editing
 
 Current homepage: logo, the cofounder's supplied philosophy and product text,
-then a single link to dev.67idea.com. Preserve the supplied wording unless the
-user asks for a copy edit. No onboarding instructions, examples, benchmarks,
-or closing slogan.
+the sandbox link, and a link to the separate benchmark page. Preserve the
+supplied wording unless the user asks for a copy edit. Keep benchmark data off
+the homepage itself. No onboarding instructions, examples, or closing slogan.
+
+The public benchmark evidence lives at `public/benchmarks/` as static HTML and
+JSON so crawlers can read it without executing React. Preserve the exact setup,
+evidence-status qualification, and distinction between complete-workflow
+turnaround and raw GPU performance.
 
 Visual exception: restore only the original subtle 28px blue background grid.
 Keep all other minimalist styling; do not restore shadows, colored panels,

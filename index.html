@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#fbfcff" />
+    <meta name="theme-color" content="#ffffff" />
     <meta
       name="description"
       content="4014 Labs builds software that lets AI agents write math to edit images and videos, render 3D scenes, and analyze movement."
@@ -12,16 +12,19 @@
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
+    <link rel="canonical" href="https://4014labs.com/" />
+    <link rel="stylesheet" href="/homepage.css" />
 
     <title>4014 Labs</title>
 
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="4014 Labs" />
     <meta
       name="twitter:description"
       content="Software that lets AI agents write math to edit images and videos, render 3D scenes, and analyze movement."
     />
     <meta name="twitter:image" content="https://4014labs.com/logo512.png" />
+    <meta name="twitter:image:alt" content="4014 Labs logo" />
     <meta name="twitter:url" content="https://4014labs.com/" />
 
     <meta property="og:title" content="4014 Labs" />
@@ -30,12 +33,67 @@
       content="Software that lets AI agents write math to edit images and videos, render 3D scenes, and analyze movement."
     />
     <meta property="og:image" content="https://4014labs.com/logo512.png" />
+    <meta property="og:image:alt" content="4014 Labs logo" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://4014labs.com/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://4014labs.com/#organization",
+            "name": "4014 Labs",
+            "url": "https://4014labs.com/",
+            "logo": "https://4014labs.com/logo512.png",
+            "email": "support@4014labs.com"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "4014 Labs visual-computing sandbox",
+            "applicationCategory": "DeveloperApplication",
+            "softwareVersion": "Developer API",
+            "url": "https://dev.67idea.com/",
+            "description": "A visual-computing sandbox for AI agents.",
+            "publisher": {
+              "@id": "https://4014labs.com/#organization"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <script type="module" src="/src/index.jsx"></script>
+  <body class="idea-site">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="nav-wrap">
+      <h1 class="wordmark">
+        <img src="/logo192.png" alt="" />
+        <span>4014 Labs</span>
+      </h1>
+    </header>
+    <main id="main" class="wrap philosophy">
+      <p>We are a company with the following values:</p>
+
+      <section>
+        <h2>1. The anti-AI backlash is a problem that free market capitalism will solve.</h2>
+        <p>Consumers have a number of philosophical concerns surrounding AI. On top of that: you need to build a good product. “Building a good product” requires both: a good user experience, and creating actually useful outputs.</p>
+        <p>This is a difficult problem. However: it is a solvable problem. It requires mastery of media, philosophy, and technology. But it is solvable. And the payoff for solving it will be immense.</p>
+      </section>
+
+      <section>
+        <h2>2. Technological moats are possible. You just suck.</h2>
+        <p>If you say “no company has moats” you are probably just uncreative.</p>
+      </section>
+
+      <section>
+        <h2>We have the following products:</h2>
+        <p><a href="https://dev.67idea.com/">The “idiotproof” code sandbox →</a></p>
+      </section>
+
+      <nav class="supporting-links" aria-label="Company information">
+        <a href="/technology/">Technology →</a>
+        <a href="/benchmarks/">Benchmarks →</a>
+      </nav>
+    </main>
   </body>
 </html>
