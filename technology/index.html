@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="How 4014 Labs gives AI agents programmable visual-computing tools without exposing a general-purpose VM."
+    />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href="https://4014labs.com/technology/" />
+    <link rel="stylesheet" href="/benchmarks/styles.css" />
+    <title>Technology | 4014 Labs</title>
+    <meta property="og:title" content="Technology | 4014 Labs" />
+    <meta
+      property="og:description"
+      content="How 4014 Labs gives AI agents programmable visual-computing tools without exposing a general-purpose VM."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://4014labs.com/technology/" />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to technology</a>
+    <header class="site-header">
+      <a class="wordmark" href="/">
+        <img src="/logo192.png" alt="" />
+        <span>4014 Labs</span>
+      </a>
+    </header>
+
+    <main id="main">
+      <p class="eyebrow">TECHNOLOGY</p>
+      <h1>Visual computing for agents</h1>
+      <p class="lede">
+        Agents write purpose-built math for a task. Our software validates it,
+        supplies the media pipeline, and runs it on a GPU.
+      </p>
+      <p>
+        4014 Labs builds the visual-computing sandbox. <code>idiotproof</code>
+        is the Python package agents install, and
+        <a href="https://dev.67idea.com/">dev.67idea.com</a> is the developer
+        portal.
+      </p>
+
+      <section>
+        <h2>Built for agents acting for consumers</h2>
+        <p>
+          A person asks for an outcome: edit this video, track this object, or
+          render this scene. Their agent chooses and composes the technical
+          operations behind the request.
+        </p>
+        <p>
+          The product is available through a usage-based developer API and the
+          <code>idiotproof</code> Python package. Consumer agents like Muse,
+          Grokbot, or Instinct can use it today.
+          We charge for API usage rather than asking the consumer to configure
+          and maintain GPU infrastructure.
+        </p>
+      </section>
+
+      <section>
+        <h2>The agent writes the operation</h2>
+        <p>
+          An agent can submit fragment or compute shaders and combine them with
+          supported media and analysis operations. It is not limited to choosing
+          from a fixed catalog of visual effects.
+        </p>
+        <p>
+          The current media contract can express color grades, spatially
+          targeted edits, and analysis overlays. We are also applying this
+          programmable approach to 3D rendering. The useful operation is written
+          for the request.
+        </p>
+      </section>
+
+      <section>
+        <h2>The host owns the execution contract</h2>
+        <p>
+          The agent does not configure a VM. Our software owns media decoding,
+          resource bindings, pipeline stages, output encoding, and delivery.
+          Submitted programs are checked against explicit shader and resource
+          contracts before execution.
+        </p>
+        <p>
+          The current public job contract accepts one to five shader or
+          middleware passes. Limits and available operations are part of the
+          product interface, not a claim that agents receive unrestricted GPU
+          access.
+        </p>
+      </section>
+
+      <section>
+        <h2>The API closes the agent loop</h2>
+        <p>
+          Agents can authenticate, upload media, discover current tool schemas,
+          run tools, read stored run records, and create time-limited output
+          links through the developer API. Idempotency supports request retries,
+          while downstream work receives scoped service credentials rather than
+          the caller’s secret API key.
+        </p>
+        <p>
+          This design is meant to produce cheap failures, zero infrastructure
+          configuration, and fast feedback. The agent does not choose a VM, GPU,
+          CPU count, RAM allocation, or Python environment. These are product
+          goals; individual latency, billing, and isolation guarantees depend on
+          the documented endpoint and workload.
+        </p>
+      </section>
+
+      <section>
+        <h2>The moat hypothesis</h2>
+        <p>
+          GPU access is not the moat. The defensibility thesis is the software
+          between an agent’s request and a delivered result: the programmable
+          media representation, validation contracts, preprocessing, execution
+          pipeline, error feedback, and agent interface.
+        </p>
+        <p>
+          Those layers have to work together across creative and precision-led
+          tasks. The current implementation demonstrates that the architecture
+          exists. It does not, by itself, prove that the resulting advantage is
+          durable or unique.
+        </p>
+      </section>
+
+    </main>
+
+    <footer>
+      <a href="/">← 4014 Labs</a>
+      <a href="/benchmarks/">Benchmarks →</a>
+      <a href="https://dev.67idea.com/docs">API documentation →</a>
+    </footer>
+  </body>
+</html>

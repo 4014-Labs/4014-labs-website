@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="Founder-run internal workflow measurements comparing 4014 Labs with Blender on Modal."
+    />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href="https://4014labs.com/benchmarks/" />
+    <link rel="stylesheet" href="/benchmarks/styles.css" />
+    <title>Benchmarks | 4014 Labs</title>
+    <meta property="og:title" content="Benchmarks | 4014 Labs" />
+    <meta
+      property="og:description"
+      content="Founder-run internal workflow measurements comparing 4014 Labs with Blender on Modal."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://4014labs.com/benchmarks/" />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to results</a>
+    <header class="site-header">
+      <a class="wordmark" href="/">
+        <img src="/logo192.png" alt="" />
+        <span>4014 Labs</span>
+      </a>
+    </header>
+
+    <main id="main">
+      <p class="eyebrow">EXPLORATORY INTERNAL WORKFLOW COMPARISON</p>
+      <h1>4014 Labs and Blender on Modal</h1>
+      <p class="lede">
+        Three founder-run tests of the delay between an initial request and a
+        delivered file.
+      </p>
+
+      <section class="lead-result" aria-labelledby="lead-result-title">
+        <h2 id="lead-result-title">
+          2.1-million-polygon scene: 20-second 1080p video
+        </h2>
+        <dl>
+          <div>
+            <dt>4014 Labs</dt>
+            <dd>67.215 s</dd>
+          </div>
+          <div>
+            <dt>Blender on Modal</dt>
+            <dd>279.474 s</dd>
+          </div>
+        </dl>
+        <p>Blender on Modal took 4.16× as long in this internal test.</p>
+        <p class="disclosure">
+          Internal results using different rendering engines and different GPU
+          hardware. Reproduction materials are not yet published.
+        </p>
+      </section>
+
+      <section aria-labelledby="results-title">
+        <h2 id="results-title">Results</h2>
+        <div class="table-wrap">
+          <table>
+            <caption>
+              Founder-reported seconds from the stated timing boundary to
+              output. Lower is better.
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Output</th>
+                <th scope="col">4014 Labs</th>
+                <th scope="col">Blender on Modal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  3D-render workflow: 1080p video, 600 frames
+                </th>
+                <td>67.215 s</td>
+                <td>279.474 s</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Minimal-output latency probe: black 512 × 512 PNG
+                </th>
+                <td>6.639 s</td>
+                <td>23.161 s</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  Minimal-output latency probe: black 256 × 256 one-frame MP4
+                </th>
+                <td>4.360 s</td>
+                <td>21.651 s</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="machine-readable">
+          <a href="/benchmarks/results.json">Machine-readable results →</a>
+        </p>
+      </section>
+
+      <section aria-labelledby="setup-title">
+        <h2 id="setup-title">Test setup</h2>
+        <h3>3D-render workflow</h3>
+        <ul>
+          <li>The long render was 1080p, 600 frames, and 20 seconds long.</li>
+          <li>The scene contained 2.1 million polygons.</li>
+          <li>The 3D scene was modeled on CPU in Python.</li>
+          <li>
+            The tested 4014 Labs workflow used an NVIDIA P4. The tested
+            Blender-on-Modal workflow used an NVIDIA L4.
+          </li>
+          <li>
+            The Modal workflow ran Blender. The 4014 Labs workflow used our
+            rendering engine.
+          </li>
+          <li>
+            Timings include setup, rendering, encoding, and delivery. They are
+            not raw GPU-kernel timings.
+          </li>
+        </ul>
+        <h3>Minimal-output latency probes</h3>
+        <ul>
+          <li>
+            The PNG probe measured first contact to a black 512 × 512 image.
+          </li>
+          <li>
+            The MP4 probe measured first contact to a black 256 × 256,
+            one-frame video.
+          </li>
+          <li>
+            These probes did not use the 2.1-million-polygon scene described
+            above.
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="why-title">
+        <h2 id="why-title">What the benchmark tests</h2>
+        <p>
+          This is a comparison of complete product workflows, not equivalent
+          rendering engines or equivalent hardware. It measures the delay an
+          agent encounters when it asks for a file and waits for the result.
+        </p>
+        <p>
+          In the founder-run Blender-on-Modal workflow, we estimated 120.47
+          seconds during which the reserved GPU was inactive. The derivation of
+          that estimate is not yet published. Our workflow preprocesses on CPU
+          before rendering on GPU.
+        </p>
+      </section>
+
+    </main>
+
+    <footer>
+      <a href="/">← 4014 Labs</a>
+      <a href="/technology/">Technology →</a>
+      <a href="https://dev.67idea.com/">Developer portal →</a>
+    </footer>
+  </body>
+</html>

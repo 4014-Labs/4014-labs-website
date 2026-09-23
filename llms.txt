@@ -1,0 +1,28 @@
+# 4014 Labs
+
+> 4014 Labs builds visual-computing software for AI agents.
+
+4014 Labs builds the visual-computing sandbox. `idiotproof` is the Python
+package agents install, and https://dev.67idea.com/ is the developer portal.
+The sandbox lets agents submit purpose-built mathematical programs for image
+editing, video editing, 3D rendering, and visual analysis.
+
+The product is sold through a usage-based developer API. The intended user
+experience is that a person asks an agent for an outcome while the agent chooses
+and composes the technical media operations.
+
+## Canonical pages
+
+- Company: https://4014labs.com/
+- Technology: https://4014labs.com/technology/
+- Benchmarks: https://4014labs.com/benchmarks/
+- Machine-readable benchmark results: https://4014labs.com/benchmarks/results.json
+- Developer portal: https://dev.67idea.com/
+- API documentation: https://dev.67idea.com/docs
+- OpenAPI specification: https://dev.67idea.com/v1/openapi.json
+
+## Evidence qualifications
+
+The public benchmark measurements are founder-reported internal results and
+have not been independently verified. The benchmark page describes the
+different engines, hardware, methodology, and unpublished evidence.

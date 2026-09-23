@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "title": "Exploratory internal workflow comparison: 4014 Labs and Blender on Modal",
+  "status": "founder-reported internal measurements; not independently verified",
+  "scope": "three founder-run internal workflow tests",
+  "lower_is_better": true,
+  "results": [
+    {
+      "test_type": "3d_render_workflow",
+      "output": "1080p 20-second video",
+      "frames": 600,
+      "scene_polygons": 2100000,
+      "scene_modeling": "CPU using Python",
+      "timing_boundary": "complete turnaround including setup and delivery",
+      "seconds": {
+        "4014_labs": 67.215,
+        "blender_on_modal": 279.474
+      }
+    },
+    {
+      "test_type": "minimal_output_latency_probe",
+      "output": "black 512x512 PNG",
+      "timing_boundary": "first contact to output",
+      "seconds": {
+        "4014_labs": 6.639,
+        "blender_on_modal": 23.161
+      }
+    },
+    {
+      "test_type": "minimal_output_latency_probe",
+      "output": "black 256x256 one-frame MP4",
+      "frames": 1,
+      "timing_boundary": "first contact to output",
+      "seconds": {
+        "4014_labs": 4.36,
+        "blender_on_modal": 21.651
+      }
+    }
+  ],
+  "setup": {
+    "applies_to": "3d_render_workflow",
+    "4014_labs_gpu": "NVIDIA P4",
+    "modal_gpu": "NVIDIA L4",
+    "4014_labs_engine": "4014 Labs rendering engine",
+    "modal_engine": "Blender"
+  },
+  "observations": {
+    "estimated_modal_gpu_reserved_but_inactive_seconds": 120.47,
+    "applies_to": "3d_render_workflow",
+    "derivation_published": false
+  },
+  "limitations": [
+    "The workflows used different rendering engines and different GPU hardware.",
+    "This is a complete-workflow comparison, not a raw GPU benchmark.",
+    "The run date and number of repetitions are not yet published.",
+    "Raw logs, reproduction scripts, and comparison video are not yet published on this page."
+  ]
+}
